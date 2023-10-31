@@ -18,8 +18,6 @@
 // - The output element is going to be a Vector of strings.
 // No hints this time!
 
-// I AM NOT DONE
-
 pub enum Command {
     Uppercase,
     Trim,
@@ -29,7 +27,7 @@ pub enum Command {
 mod my_module {
     use super::Command;
 
-    fn multiply_string(string: String, times: &usize) -> String {
+    fn multiply_string(string: String, times: usize) -> String {
         let mut result = String::from(string);
         let bar_var = "bar";
         for _ in 0..times {
@@ -47,7 +45,7 @@ mod my_module {
             match command {
                 Command::Uppercase => output.push(string.to_uppercase()),
                 Command::Trim => output.push(string.trim().to_string()),
-                Command::Append(usize) => output.push(multiply_string(string.to_string(), usize)),
+                Command::Append(usize) => output.push(multiply_string(string.to_string(), *usize)),
             }
         }
         output
